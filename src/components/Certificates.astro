@@ -1,0 +1,44 @@
+---
+import Section from "./Section.astro";
+import { Image } from "astro:assets";
+import type { CertificatesProps } from "@types";
+
+interface Props {
+  certificates: CertificatesProps[];
+}
+
+const { certificates } = Astro.props;
+---
+
+<Section text="Certificados" href="certificates">
+  {
+    certificates.map(({ name, image }, index) => {
+      const top = 98 + index * 40;
+      return (
+        <div
+          style={`top: ${top}px;`}
+          class="sticky mb-12 overflow-hidden rounded-2xl border border-neutral/20 bg-black "
+        >
+          <div class="bg-difu relative z-[1] grid h-[580px] w-full grid-rows-2 overflow-hidden rounded-2xl bg-[#d2edf1]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:grid-cols-2 sm:grid-rows-1 md:h-96">
+            <div class="px-6 pt-12">
+              <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
+                {name}
+              </h3>
+              <div class="flex gap-5 pt-10 text-white">
+              </div>
+            </div>
+            <div class="relative overflow-hidden w-[320px] h-full sm:w-[380px] rounded-r-2xl">
+              <Image
+                class="absolute inset-0 w-full h-full object-cover"
+                src={image}
+                alt={name}
+                width="380"
+                height="390"
+              />
+            </div>
+          </div>
+        </div>
+      );
+    })
+  }
+</Section>

@@ -1,0 +1,104 @@
+---
+import Menu from "@icons/Menu.astro";
+import { Image } from "astro:assets";
+import type { HeaderProps } from "@types";
+
+type Props = HeaderProps;
+
+const { siteLogo, navLinks } = Astro.props;
+---
+
+<header
+  class="sticky top-0 z-50 mx-auto flex max-w-5xl animate-slide-in justify-between bg-black px-5 py-6"
+>
+  <a href="/" aria-label="Home link">
+    <Image
+      class="rounded-full"
+      src={siteLogo}
+      width="45"
+      height="45"
+      alt="website logo"
+    />
+  </a>
+
+  <button
+    type="button"
+    id="menu-button"
+    class="px-1.5 text-neutral sm:hidden"
+    aria-expanded="false"
+    aria-controls="main-menu"
+  >
+    <Menu />
+  </button>
+
+  <nav
+    class="absolute top-20 right-5 hidden rounded-xl border border-neutral/40 bg-black px-4 py-5 text-neutral sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0"
+    id="main-menu"
+  >
+    <ul class="gap-2 sm:flex">
+      {
+        navLinks.map((link) => (
+          <li class="relative">
+            <a
+              class={`nav-item relative block p-2 text-sm font-medium transition-all duration-500 after:absolute after:bottom-0 after:left-2/4 after:h-2 after:w-1 after:-translate-x-2/4 after:text-primary after:opacity-0 after:content-['•'] hover:text-white`}
+              href={link.href}
+            >
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<script>
+  // Toggle mobile menu
+  const button = document.querySelector("#menu-button");
+  const menu = document.querySelector("#main-menu");
+  const navItems = document.querySelectorAll("#main-menu > ul > li > a");
+
+  const toggleMenu = () => {
+    menu?.classList.toggle("hidden");
+    const isHidden = menu?.classList.contains("hidden");
+    button?.setAttribute("aria-expanded", `${!isHidden}`);
+  };
+
+  button?.addEventListener("click", toggleMenu);
+  navItems.forEach((item) => {
+    item?.addEventListener("click", toggleMenu);
+  });
+  
+  const navSections = Array.from(document.querySelectorAll("section[id]") as NodeListOf<HTMLElement>);
+
+  const updateActiveNav = () => {
+    const scrollCenter = window.scrollY + window.innerHeight / 2;
+    let activeId = "";
+
+    navSections.forEach((section) => {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+
+      if (scrollCenter >= sectionTop && scrollCenter < sectionBottom) {
+        activeId = section.id;
+      }
+    });
+
+    navItems.forEach((item) => {
+      const isActive = item.getAttribute("href") === `#${activeId}`;
+      item.classList.toggle("text-white", isActive);
+      item.classList.toggle("after:opacity-100", isActive);
+    });
+  };
+
+  window.addEventListener("scroll", updateActiveNav, { passive: true });
+  window.addEventListener("resize", updateActiveNav);
+  updateActiveNav();
+</script>
+
+<style>
+  header {
+    animation-timeline: scroll();
+    animation-range: 0 650px;
+  }
+</style>
