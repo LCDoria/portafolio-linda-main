@@ -27,9 +27,9 @@ const { projects } = Astro.props;
               <p class="text-base text-neutral">{summary}</p>
               <div class="flex gap-5 pt-6 text-white sm:pt-10"></div>
             </div>
-            <div class="relative z-10 flex-none h-[480px] w-full overflow-hidden rounded-b-2xl sm:h-auto sm:min-h-0 sm:w-auto sm:flex-1 sm:basis-[42%] sm:rounded-r-2xl md:col-start-2 md:row-start-1 md:w-[380px] md:h-full md:rounded-r-2xl">
+            <div class="relative z-10 flex-none h-[480px] w-full overflow-hidden rounded-b-2xl rounded-bl-none sm:h-auto sm:min-h-0 sm:w-auto sm:flex-1 sm:basis-[42%] sm:rounded-r-2xl md:col-start-2 md:row-start-1 md:w-[380px] md:h-full md:rounded-r-2xl">
               <Image
-                class="absolute inset-0 w-full h-full object-cover object-bottom rounded-b-2xl sm:rounded-r-2xl md:static md:h-full md:object-center"
+                class="absolute inset-0 w-full h-full object-cover object-bottom rounded-b-2xl rounded-bl-none sm:rounded-r-2xl md:static md:h-full md:object-center"
                 src={image}
                 alt={name}
                 width="380"

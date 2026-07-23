@@ -17,18 +17,18 @@ const { certificates } = Astro.props;
       return (
         <div
           style={`top: ${top}px;`}
-          class="mb-12 overflow-hidden rounded-2xl border border-neutral/20 bg-black md:sticky"
+          class="mb-12 overflow-hidden rounded-2xl border border-neutral/20 bg-black md:sticky md:h-[390px] md:min-h-0"
         >
-          <div class="bg-difu relative z-[1] flex min-h-[680px] flex-col overflow-hidden rounded-2xl bg-[#d2edf1]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:min-h-[360px] sm:flex-row md:grid md:grid-rows-1 md:grid-cols-2 md:h-96">
+          <div class="bg-difu relative z-[1] flex min-h-[680px] flex-col overflow-hidden rounded-2xl bg-[#d2edf1]/85 before:absolute before:inset-0 before:z-[-1] before:rounded-2xl before:bg-[url(/raja.png)] before:bg-[length:128px] before:bg-repeat before:opacity-[5%] before:content-[''] sm:min-h-[360px] sm:flex-row md:grid md:grid-rows-1 md:grid-cols-2 md:h-[390px] md:min-h-0">
             <div class="relative z-30 flex w-full flex-col px-6 py-8 bg-transparent sm:w-auto sm:flex-1 sm:justify-center sm:pt-12 sm:rounded-l-2xl rounded-t-2xl md:col-start-1 md:row-start-1 md:pt-12 md:pb-6">
               <h3 class="mb-5 font-serif text-3xl font-medium text-primary">
                 {name}
               </h3>
               <div class="flex gap-5 pt-4 text-white sm:pt-10"></div>
             </div>
-            <div class="relative z-10 flex-none h-[560px] w-full overflow-hidden rounded-b-2xl sm:h-auto sm:min-h-0 sm:w-auto sm:flex-1 sm:basis-[42%] sm:rounded-r-2xl md:col-start-2 md:row-start-1 md:w-[380px] md:h-full md:rounded-r-2xl">
+            <div class="relative z-10 flex-none w-full overflow-hidden rounded-b-2xl sm:h-[390px] sm:w-full sm:rounded-b-2xl sm:rounded-r-none md:h-[390px] md:w-[380px] md:rounded-r-2xl">
               <Image
-                class="absolute inset-0 w-full h-full object-cover object-bottom rounded-b-2xl sm:rounded-r-2xl"
+                class="block w-full h-full object-contain rounded-b-2xl sm:rounded-r-2xl md:object-center"
                 src={image}
                 alt={name}
                 width="380"
