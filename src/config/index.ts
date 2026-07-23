@@ -36,7 +36,7 @@ export const SITE_CONTENT: SiteContent = {
       company: "Hospital Universidad del Norte",
       position: "Psicóloga pasante",
       startDate: "Enero 2025",
-      endDate: "Diciebmre 2025",
+      endDate: "Diciembre 2025",
       summary: [
         "Realicé entrevistas de admisión y procesos de evaluación psicológica clínica, contribuyendo a la identificación de necesidades, formulación de hipótesis clínicas y orientación de planes de intervención.",
         "Apliqué técnicas e instrumentos de evaluación psicológica y gestioné historias clínicas e informes, garantizando la confidencialidad de la información, el cumplimiento ético y la calidad de los registros clínicos.",
@@ -79,7 +79,7 @@ export const SITE_CONTENT: SiteContent = {
     },
     {
       name: "Jornada de salud mental",
-      summary: "Evento educativo sobre la importancia de la salud mental en la población infantil y adolescente, se proporciocó información sobre la promoción de la salud mental y lineas de ayuda.",
+      summary: "Evento educativo sobre la importancia de la salud mental en la población infantil y adolescente, se proporcionó información sobre la promoción de la salud mental y lineas de ayuda.",
       linkPreview: "/",
       linkSource: "https://github.com/immois/astro-zen",
       image: "/salud-mental.png",
